@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import Button from './Button';
 
 // ------Joke Comp-----
@@ -14,6 +14,19 @@ const Joke = () => {
     //     joke : "Wait a second, Joke is Comming!"
     // }
 
+    // Generate random color
+    const genRandomColor = () => {
+        let x = '';
+        while (x.length < 6) {
+          x += (Math.random()).toString(16).substr(-8).substr(-4);
+        }
+        return '#' + x;
+    }
+
+    // UseState
+    const [joke, setJoke] = useState('');
+
+    // Fetch a joke
     const getJoke = () => {
         // Fetch API
         fetch('https://icanhazdadjoke.com/', {
@@ -33,16 +46,21 @@ const Joke = () => {
         }).catch((err) => {
             setJoke(err);
         });
+
+        console.log(currJoke.current);
+        currJoke.current.style.backgroundColor = genRandomColor();
     }
-    // UseState
-    const [joke, setJoke] = useState('');
 
     // UseEffect
     useEffect(() => {
         getJoke();
-    }, [])
+    }, []);
+
+    // UseRef
+    const currJoke = useRef();
+
     return (
-        <div className="card">
+        <div ref={currJoke} className="card">
             <h2>{joke}</h2>
             <Button text="Generate New Joke" style={{backgroundColor : 'black'}} clickBtn={getJoke}/>
         </div>
