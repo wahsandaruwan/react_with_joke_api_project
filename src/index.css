@@ -10,4 +10,54 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}  
+
+/* -----Header----- */
+.hdr{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* -----Joke----- */
+.card{
+  background-color: yellow;
+  padding: 50px;
+  text-align: center;
+}
+
+/* -----Button----- */
+.btn{
+  display: block;
+  color: white;
+  padding: 20px 40px;
+  border: none;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.btn:hover{
+  background-color: blueviolet !important;
+}
+
+/* -----About Page----- */
+.about{
+  background-color: coral;
+  padding: 40px;
+}
+
+.about h1{
+  color: black;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.about p{
+  background-color: white;
+  color: black;
+  padding: 30px;
 }

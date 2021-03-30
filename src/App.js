@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+// import React from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import HomePage from './components/HomePage';
+import AboutPage from './components/AboutPage';
 
-function App() {
+const App = () => {
+  // const name = "Himal";
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        {/* <h1>Hello World!</h1>
+        <h2>Hello {2 * 3}</h2>
+        <h3>Hello {2 + 4 == 6 ? name : "User"}</h3> */}
+      </div>
+      <Route path="/" exact component={HomePage}/>
+      <Route path="/about" component={AboutPage}/>
+    </Router>
   );
 }
+
+// Class based components
+// class App extends React.Component {
+//   render() {
+//     return <h1>Hello Friends!</h1>
+//   }
+// }
 
 export default App;
